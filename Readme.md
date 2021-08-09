@@ -4,14 +4,14 @@ Let's try this again.
 
 Install Node.js (https://nodejs.org/en/) and all required dependencies (including chocolatey if on Windows).
 
-#QUICK Guide
-##cd to the LightsOut directory
+# QUICK Guide
+## cd to the LightsOut directory
 cd "C:\users\redbe\Desktop\gitHubs\LightsOut\Facebook LightsOut"
-##Ensure that you have all the node modules and IOT device API modules you need.
-##Run node webserver.js
+## Ensure that you have all the node modules and IOT device API modules you need.
+## Run node webserver.js
 &("C:\Program Files\nodejs\node.exe") .\webserver.js
-##it should start listening on port 8081
-###Example app listening on port 8081!
+## it should start listening on port 8081
+### Example app listening on port 8081!
 
 #Code flow - 
 ## Webserver starts
