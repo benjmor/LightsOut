@@ -20,3 +20,6 @@ cd "C:\users\redbe\Desktop\gitHubs\LightsOut\Facebook LightsOut"
 ## Browser posts the contents of the text to the webserver
 ## Web server posts to IOT device API to turn it on/off
 ## HTML page refreshes itself every three seconds to continuously grab latest comments
+
+#Current roadblock:
+## Facebook's logon API wants ONLY HTTPS pages to use their logon stuff. Locally-run HTML is not acceptable. Need to find a workaround.
