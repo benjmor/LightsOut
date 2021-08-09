@@ -8,7 +8,8 @@
 <body>
 <form name="testing" method="post">
 	<input name="testChickens" id="testChickens"> <!Create a form (thing that sends data back to server). The form is named testing. Its value is named testChickens.>
-	</form>
+</form>
+<div id="status"></div>
 <script>
   // This is called with the results from from FB.getLoginStatus().
   //Most of this section is just blatantly copied and pasted from Facebook examples. Except the Test API.
@@ -39,58 +40,52 @@
   }
 
   window.fbAsyncInit = function() {
-  FB.init({
-    appId      : '279515839174575',
-    cookie     : true,  // enable cookies to allow the server to access 
-                        // the session
-    xfbml      : true,  // parse social plugins on this page
-    version    : 'v2.8' // use graph api version 2.8
-  });
+	  FB.init({
+		appId      : '279515839174575',
+		cookie     : true,  // enable cookies to allow the server to access 
+							// the session
+		xfbml      : true,  // parse social plugins on this page
+		version    : 'v11.0' // use graph api version
+	  });
 
-  // Now that we've initialized the JavaScript SDK, we call 
-  // FB.getLoginStatus().  This function gets the state of the
-  // person visiting this page and can return one of three states to
-  // the callback you provide.  They can be:
-  //
-  // 1. Logged into your app ('connected')
-  // 2. Logged into Facebook, but not your app ('not_authorized')
-  // 3. Not logged into Facebook and can't tell if they are logged into
-  //    your app or not.
-  //
-  // These three cases are handled in the callback function.
+	  // Now that we've initialized the JavaScript SDK, we call 
+	  // FB.getLoginStatus().  This function gets the state of the
+	  // person visiting this page and can return one of three states to
+	  // the callback you provide.  They can be:
+	  //
+	  // 1. Logged into your app ('connected')
+	  // 2. Logged into Facebook, but not your app ('not_authorized')
+	  // 3. Not logged into Facebook and can't tell if they are logged into
+	  //    your app or not.
+	  //
+	  // These three cases are handled in the callback function.
 
-  FB.getLoginStatus(function(response) {
-    statusChangeCallback(response);
-  });
-
+	  FB.getLoginStatus(function(response) {
+		statusChangeCallback(response);
+	  });
   };
 
   // Load the SDK asynchronously
-  (function(d, s, id) {
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) return;
-    js = d.createElement(s); js.id = id;
-    js.src = "//connect.facebook.net/en_US/sdk.js";
-    fjs.parentNode.insertBefore(js, fjs);
-  }(document, 'script', 'facebook-jssdk'));
+  //(function(d, s, id) {
+  //  var js, fjs = d.getElementsByTagName(s)[0];
+  //  if (d.getElementById(id)) return;
+  //  js = d.createElement(s); js.id = id;
+  //  js.src = "//connect.facebook.net/en_US/sdk.js";
+  //  fjs.parentNode.insertBefore(js, fjs);
+  //}(document, 'script', 'facebook-jssdk'));
 
   // Here we run a very simple test of the Graph API after login is
   // successful.  See statusChangeCallback() for when this call is made.
-  function testAPI() //THIS IS STUFF I WROTE
-{
-   //console.log('Welcome!  Fetching your information.... ');
-   //FB.api('/me', function(response) 
-   //{
-   //    console.log('Good to see you, ' + response.name + '.');
-   //});
-   FB.api('/1903198366607996_1903208999940266/comments?order=reverse_chronological', function(response) //Play with the "Graph API Explorer" to get a feel for this.
-   {
-      document.getElementById('Status').innerHTML = response.data[0].message; //Get the content of the most recent comment
-	  document.getElementById('wordStrip').innerHTML = response.data[0].message.substring(0,3); //Get only the first three characters
-	  variable = response.data[0].message.substring(0,3);
-	  document.forms["testing"].testChickens.value = variable; //Load those characters into the form value
-	  document.forms["testing"].submit() //Submit the form automatically to the webserver.
-   });
+  function testAPI(){ //THIS IS STUFF I WROTE
+   FB.api(
+	  '/1903198366607996_1903208999940266/comments?order=reverse_chronological', function(response){ //Play with the "Graph API Explorer" to get a feel for this.
+        document.getElementById('Status').innerHTML = response.data[0].message; //Get the content of the most recent comment
+	    document.getElementById('wordStrip').innerHTML = response.data[0].message.substring(0,3); //Get only the first three characters
+	    variable = response.data[0].message.substring(0,3);
+	    document.forms["testing"].testChickens.value = variable; //Load those characters into the form value
+	    document.forms["testing"].submit() //Submit the form automatically to the webserver.
+	  }
+   );
 }
 	
 </script>
@@ -101,5 +96,6 @@
 -->
 <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
 </fb:login-button>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
 </body>
 </html>

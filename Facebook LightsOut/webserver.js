@@ -17,10 +17,10 @@ app.get('/', function (req, res) { //When the user browses to "localhost:8081/" 
 
 app.post('/', function (req, res) { //This tag gets executed when the HTML page "posts" information to the web server.
 	console.log(req.body.testChickens) //Record what information was sent to the server, for testing purposes.
-	  if ("on" == req.body.testChickens.substring(0,2)){ //Check if the string is "on" or "off"
+	  if ("on" == req.body.testChickens.substring(0,2).toLowerCase()){ //Check if the string is "on" or "off"
 		  turnon.on();
 	  }
-	  if ("off" == req.body.testChickens){
+	  if ("off" == req.body.testChickens.toLowerCase()){
 		console.log("Entered off loop");
 	   	turnoff.off();
 	  }
