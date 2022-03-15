@@ -7,7 +7,7 @@ exports.on = function(){
 	//plug.setPowerState(true);
 
 	// Look for plugs, log to console, and turn them on
-	client.startDiscovery().on('plug-new', (plug) => {
+	client.startDiscovery().on('plug-new', (plug) => { 
 	  //.getInfo().then(console.log);
 	  //plug.setPowerState(true);
 	  //if (false==plug.getPowerState()) process.exit();
