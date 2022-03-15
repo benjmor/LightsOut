@@ -13,7 +13,7 @@ cd "C:\users\redbe\Desktop\gitHubs\LightsOut\Facebook LightsOut"
 ## it should start listening on port 8081
 ### Example app listening on port 8081!
 
-#Code flow - 
+#Code flow -
 ## Webserver starts
 ## User starts browser running the htmltest.html file to act as client for webserver
 ## Browser queries FB API of the post in question (hardcoded) and pulls the text of the latest comment

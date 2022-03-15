@@ -25,7 +25,7 @@ app.post('/', function (req, res) { //This tag gets executed when the HTML page 
 	   	turnoff.off();
 	  }
 	  res.writeHead(200, {'Content-Type': 'text/html'});
-	  res.write(html);//Load the HTML page again so that we're constantly refreshing and checking Facebook. 
+	  res.write(html);//Load the HTML page again so that we're constantly refreshing and checking Facebook.
 	  res.end();
 })
 
